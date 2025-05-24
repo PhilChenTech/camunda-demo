@@ -16,7 +16,8 @@ public class IssueCouponDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        couponService.issueCoupon("ID5566");
-        System.out.println("發送優惠券給使用者：" + "ID5566");
+        String userId = (String) execution.getVariable("userId");
+        couponService.issueCoupon(userId);
+        System.out.println("發送優惠券給使用者：" + userId);
     }
 }
